@@ -2,6 +2,7 @@ django==4.0.0
 django-crispy-forms
 django-widget-tweaks
 django-csp
+djangorestframework
 whitenoise
 psycopg2-binary
 asgiref==3.5.0

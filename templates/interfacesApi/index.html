@@ -1,9 +1,11 @@
 {% extends "base.html" %} {% block content %}
+<style>
+.button-container {
+  display: auto;
+  text-align: center;
+}
+</style>
 
-
-
-        
-        
 <div class="container w-60 mt-4">
     <div class="card">
         <div class="card-header">
@@ -14,8 +16,12 @@
         <div class="card-header">
             Go To
         </div>
-        <a href="{% url "file_management" %}"> File management</a>
-        <a href="{% url "ecu_info" %}"> ECU info</a>
+        <div class="button-container"> 
+            <a href="{% url "file_management" %}"> 
+                <button class="button-container btn btn-primary btn-lg" style="padding: 64px 64px; margin: 10px 10px;">Server Container Management</button></a>
+            <a href="{% url "ecu_info" %}"> 
+                <button class="button-container btn btn-primary btn-lg" style="padding: 64px 64px; margin: 10px 10px;">Remote Diagnostic - Fota Download Status</button></a>
+        </div>
     </div>
 </div>
 <script>

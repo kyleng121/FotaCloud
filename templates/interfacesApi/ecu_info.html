@@ -22,7 +22,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title mb-4">Response from ECU</h5>
-            <button id="querry_info_btn">Query Info of ECU</button>
+            <button type="submit" id="querry_info_btn" class="btn btn-primary" >Query Info of ECU</button>
             <div class="mb-2 row">
                 <div class="col">
                     <h3 >Diag Messages</h3>
@@ -46,6 +46,7 @@ $('#querry_info_btn').on('click',function(){
         dataType: 'json',
         success: function(data){
             var message_diag =[]
+            $('#response_diag').clean()
             convert_date(data.data[0].time)
             for(i=0;i<data.data.length;i++){
                 if(data.data[i].message_type == 'diag'){

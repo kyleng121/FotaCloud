@@ -76,19 +76,16 @@ $('#send_diag_btn').on('click',function(){
     var crsfToken = getCookie('csrftoken');
     var data = {
         'diag_service' : textInput,
+        'csrfmiddlewaretoken':crsfToken,
     }
   
     $.ajax({
         type: 'POST',
         url:'get_diag_messages',
-        headers: {
-            'X-CSRFToken': crsfToken
-        },
-        contentType: 'application/json',
         data: data,
         dataType: 'json',
-        success: function(data){
-
+        success: function(response){
+            console.log(response)
         },
         error: function(xhr, textStatus, errorThrown){
             var errorMessage = 'Error:' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJson.error : textStatus)

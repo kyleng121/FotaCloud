@@ -12,10 +12,10 @@ from . import models
 
 ALLOWED_EXTENTIONS = ['.pdf','.doc','.docx','.bin','.zip']
 
-storage_account_key = "0e77Bl3w45EqddjDN0t23MK0d69vIi8BrqTQMjioUSVrJC9e+jloKmPQZqxslK9VZQd+KVLXQ84s+AStTJF47w=="
-storage_account_name = "otastorage2"
-connection_string = "DefaultEndpointsProtocol=https;AccountName=otastorage2;AccountKey=0e77Bl3w45EqddjDN0t23MK0d69vIi8BrqTQMjioUSVrJC9e+jloKmPQZqxslK9VZQd+KVLXQ84s+AStTJF47w==;EndpointSuffix=core.windows.net"
-container_name = "otas"
+storage_account_key = "P+u0R3QDt2aajdiigUOxo0zQk5HuxxggetoVdXaZaZOixQg8VEr8rBbSx2mBpoznx9xDFS+YI8Vu+AStSE3qAA=="
+storage_account_name = "fwstorages23"
+connection_string = "DefaultEndpointsProtocol=https;AccountName=fwstorages23;AccountKey=P+u0R3QDt2aajdiigUOxo0zQk5HuxxggetoVdXaZaZOixQg8VEr8rBbSx2mBpoznx9xDFS+YI8Vu+AStSE3qAA==;EndpointSuffix=core.windows.net"
+container_name = "fota"
 
 def upload_to_blob_storage(file,file_name):
     print("in upload function to blob")

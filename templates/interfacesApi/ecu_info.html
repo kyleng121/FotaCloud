@@ -50,7 +50,8 @@ $('#querry_info_btn').on('click',function(){
             $('#fw_status').empty()
             for(i=0;i<data.data.length;i++){
                 if(data.data[i].message_type == 'diag'){
-                    str_messages = convert_date(data.data[i].time) + "   " + data.data[i].message_content
+                    //data.data[i].time) + "   " +
+                    str_messages = convert_date(data.data[i].message_content
                     var messagesDiag = $("<p>").text(str_messages);
                     console.log(data.data[i].time)
                     $('#response_diag').append(messagesDiag)

@@ -52,11 +52,13 @@ $('#querry_info_btn').on('click',function(){
                 if(data.data[i].message_type == 'diag'){
                     str_messages = convert_date(data.data[i].time) + "   " + data.data[i].message_content
                     var messagesDiag = $("<p>").text(str_messages);
+                    console.log("msg",messagesDiag)
                     $('#response_diag').append(messagesDiag)
                 }
                 else{
                     str_messages = convert_date(data.data[i].time) + "   " + data.data[i].message_content
                     var firmwareStatus = $("<p>").text(str_messages);
+                    console.log("status",firmwareStatus)
                     $('#fw_status').append(firmwareStatus)
                 }
             }

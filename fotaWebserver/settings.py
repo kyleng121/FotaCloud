@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'fotaWebserver.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "otadb2",
-        "USER": "cong@fotadbstoreserver",
-        "PASSWORD": "C123456789.",
-        "HOST": "fotadbstoreserver.postgres.database.azure.com",
+        "NAME": "database",
+        "USER": "admin1@svrcloudfota",
+        "PASSWORD": "Admin.123456",
+        "HOST": "svrcloudfota.postgres.database.azure.com",
         "PORT": "5432",
         "OPTIONS":{
             "sslmode":"require"

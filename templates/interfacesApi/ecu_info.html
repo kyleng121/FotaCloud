@@ -46,7 +46,8 @@ $('#querry_info_btn').on('click',function(){
         dataType: 'json',
         success: function(data){
             var message_diag =[]
-            $('#response_diag').clean()
+            $('#response_diag').empty()
+            $('#fw_status').empty()
             convert_date(data.data[0].time)
             for(i=0;i<data.data.length;i++){
                 if(data.data[i].message_type == 'diag'){

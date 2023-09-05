@@ -1,4 +1,10 @@
 {% extends "base.html" %} {% block content %}
+<style>
+.button {
+    display: flex;
+    justify-content: end;
+}
+</style>
 
 <div class="container w-60 mt-4">
     <div class="card">
@@ -10,8 +16,8 @@
             <div class="mb-2">
                 <form id="textInputForm" enctype="multipart/form-data">
 <!--                     {% csrf_token %} -->
-                    <input type="text" id="diag_service"><br><br>
-                    <button type="submit" id="send_diag_btn" class="btn btn-primary">Send</button>
+                    <input type="text" id="diag_service">
+                    <button type="submit" id="send_diag_btn" class="btn btn-primary" style="margin-left: 0%;">Send</button>
                 </form>
             </div>        
         </div>
@@ -21,10 +27,13 @@
             Response messages
         </div>
         <div class="card-body">
-            <h5 class="card-title mb-4">Response from ECU</h5>
-            <button type="submit" id="querry_info_btn" class="btn btn-primary" >Query Info of ECU</button>
+            <h5 class="card-title mb-4">Response from ECU
+                <button type="submit" id="querry_info_btn" class="btn btn-primary" style="margin-left: 70%;" >Query Info of ECU</button>
+            </h5>
             <div class="mb-2 row">
                 <div class="col">
+                    <div class="container">
+                    </div>
                     <h3 >Diag Messages</h3>
                     <h5 id="response_diag"></h5>
                 </div>

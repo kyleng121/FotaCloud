@@ -1,8 +1,11 @@
 {% extends "base.html" %} {% block content %}
 <style>
 .checklist-container { 
-    border:2px solid #ccc; width:300px; height: 100px; overflow-y: scroll;
+    border:1px solid #ccc; width:300px; height: 100px; overflow-y: scroll;
+    border-radius: 5px;
     width: 100%; /* This will make the checklist container fill the screen width */
+    padding: 0px 0px 0px 40px;
+    margin-bottom: 20px;
     }
 
 </style>
@@ -52,7 +55,7 @@
                 <div class="container-fluid mt-4">
                     <div class="checklist-container" id="scroll-container">
                         {% for file in files %}
-                            <input type="checkbox" id="cb_file_{{ forloop.counter }}"><label for="cb_file_{{ forloop.counter }}">{{ file }}</label><br />
+                            <input type="checkbox" id="cb_file_{{ forloop.counter }}" style="margin-right: 5px;"><label for="cb_file_{{ forloop.counter }}">{{ file }}</label><br />
                         {% endfor %}
                     </div>
                     <!--
@@ -64,7 +67,10 @@
                         {% endfor %}
                     </table>
                     -->
-                <button id="delete-btn" class="btn btn-danger">Delete Selected</button>
+                <p style="margin-bottom: 10px; text-align: right;">
+                    <button id="delete-btn" class="btn btn-danger">Delete Selected</button>
+                </p> 
+                
                 </div>
             </div>        
         </div>

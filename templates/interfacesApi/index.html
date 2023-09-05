@@ -1,16 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <style>
-.button-container {
-  display: auto;
-  text-align: center;
-}
 </style>
-    <div class="card">
-        <div class="button-container"> 
+    <div class="container">
+        <div class="button-container " style=" min-height:100vh;   display: flex; align-items: center; justify-content: space-evenly;"> 
             <a href="{% url "file_management" %}"> 
-                <button class="button-container btn btn-primary btn-lg" style="padding: 64px 64px; margin: 10px 10px;">Server Container Management</button></a>
+                <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px;  padding: 64px 64px; margin: 10px 10px;">Server Container Management</button></a>
             <a href="{% url "ecu_info" %}"> 
-                <button class="button-container btn btn-primary btn-lg" style="padding: 64px 64px; margin: 10px 10px;">Remote Diagnostic - Fota Download Status</button></a>
+                <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px; padding: 64px 64px; margin: 10px 10px;">Remote Diagnostic Fota Download Status</button></a>
         </div>
     </div>
 <script>

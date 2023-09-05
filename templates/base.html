@@ -1,3 +1,7 @@
+<style>
+</style>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -13,11 +17,15 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <title>FOTA CLOUD</title>
+    <link rel="icon" type="image/png" href="{% static '/favicon.png' %}">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url "index" %}">FOTA CLOUD</a>
+        <a class="navbar-brand" href="{% url "index" %}">
+          <img src="static/favicon.png" alt="" class="d-inline-block align-middle mr-2" width="45">
+          <span>FOTA CLOUD</span>
+        </a>
         <button
           class="navbar-toggler"
           type="button"

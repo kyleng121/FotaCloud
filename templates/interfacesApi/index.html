@@ -1,15 +1,30 @@
 {% extends "base.html" %} {% block content %}
 <style>
-</style>
-    <div class="container">
-        <div class="button-container " style=" min-height:100vh;   display: flex; align-items: center; justify-content: space-evenly;"> 
-            <a href="{% url "file_management" %}"> 
-                <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px;  padding: 64px 64px; margin: 10px 10px;">Server Container Management</button></a>
-            <a href="{% url "ecu_info" %}"> 
-                <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px; padding: 64px 64px; margin: 10px 10px;">Remote Diagnostic Fota Download Status</button></a>
-        </div>
-    </div>
-<script>
 
-</script>
+header h1 {
+    font: 1em sans-serif;
+  font-size: 70px;
+  font-weight: 500;
+  background-image: conic-gradient(#553c9a, #58c6fd, #03656a92, #09aaaa);
+  text-align: center;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+</style>
+<div class="container">
+<header>
+    <h1>Telematic Gateway</h1>
+</header>
+</div>
+
+<div class="container">
+    <div class="button-container " style=" min-height:70vh;   display: flex; align-items: center; justify-content: space-evenly;"> 
+        <a href="{% url "file_management" %}"> 
+            <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px;  padding: 64px 64px; margin: 10px 10px;">Server Container Management</button></a>
+        <a href="{% url "ecu_info" %}"> 
+            <button class="button-container btn btn-primary btn-lg" style="height: 200px; width: 330px; padding: 64px 64px; margin: 10px 10px;">Remote Diagnostic Fota Download Status</button></a>
+    </div>
+</div>
 {% endblock %}

@@ -2,8 +2,8 @@ import json
 import sys
 from azure.iot.hub import IoTHubRegistryManager
 
-CONNECTION_STRING = "HostName=OTADeviceHub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=HDJ7yFLBC4y6bFvQuWl1yy1M43Z7QkDKB2RyZwdrUXk="
-DEVICE_ID = "OTAmaster"
+CONNECTION_STRING = "HostName=cloudiothub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=OXIljDPW9fw4cdODJE2NNcWgmtmb/UyVFAIoTNcHQGo="
+DEVICE_ID = "device1"
 
 def send_request_messagses(data,messageType):
     try:

@@ -1,16 +1,24 @@
 {% extends "base.html" %} {% block content %}
+<style>
+.checklist-container { 
+    border:1px solid #ccc; width:300px; height: 100px; overflow-y: scroll;
+    border-radius: 5px;
+    width: 100%; /* This will make the checklist container fill the screen width */
+    padding: 0px 0px 0px 40px;
+    margin-bottom: 20px;
+    }
 
+</style>
+    
 <div class="container w-60 mt-4">
     <div class="card">
         <div class="card-header">
-            Manage your files
+            Manage File Container
         </div>
         <div class="card-body">
-            <h5 class="card-title mb-4">Choose from the menu options</h5>
+            <h5 class="card-title mb-4">Upload Files to Server Container</h5>
             <div class="mb-2">
-                <div class="container w-50 mt-4">
-                    <h2 class="mt-4">Upload File</h2>
-                  
+                <div class="container-fluid mt-4">
                     <form method="post" enctype="multipart/form-data" action="upload_file">
                       {% csrf_token %}
                   
@@ -22,6 +30,7 @@
                           id="inputGroupFile04"
                           aria-describedby="inputGroupFileAddon04"
                           aria-label="Upload"
+                          style="flex: 1;"
                         />
                         <button
                           class="btn btn-outline-secondary"
@@ -32,27 +41,36 @@
                         </button>
                       </div>
                     </form>
-                  </div>
+                </div>
             </div>        
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            List of Firmware
+            Firmware
         </div>
         <div class="card-body">
-        <button id="del_btn">Delete</button>
             <h5 class="card-title mb-4"></h5>
             <div class="mb-2">
-                <div class="container w-50 mt-4">
-                <h5 class="card-title mb-4">Firmware</h5>
-                   <table id="fw_table">
-                    {% for file in files %}
-                    <tr>
-                       <td id="file_{{ forloop.counter }}"><input type="checkbox" id="cb_file_{{ forloop.counter }}">{{file}}</td>
-                    </tr>
-                    {% endfor %}
-                   </table>
+                <div class="container-fluid mt-4">
+                    <div class="checklist-container" id="scroll-container">
+                        {% for file in files %}
+                            <input type="checkbox" id="cb_file_{{ forloop.counter }}" style="margin-right: 5px;"><label for="cb_file_{{ forloop.counter }}">{{ file }}</label><br />
+                        {% endfor %}
+                    </div>
+                    <!--
+                    <table id="fw_table">
+                        {% for file in files %}
+                        <tr>
+                           <td id="file_{{ forloop.counter }}"><input type="checkbox" id="cb_file_{{ forloop.counter }}">{{file}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    -->
+                <p style="margin-bottom: 10px; text-align: right;">
+                    <button id="delete-btn" class="btn btn-danger">Delete Selected</button>
+                </p> 
+                
                 </div>
             </div>        
         </div>
@@ -60,28 +78,34 @@
 </div>
 
 <script>
+
 function getCookie(name){
     var value = ";" + document.cookie;
     var parts = value.split(";" + name + "=")
     if(parts.length==2) return parts.pop().split(";").shift();
 }
-$('#del_btn').on('click',function(){
-    var table = document.getElementById('fw_table');
-    var rowCount = table.rows.length;
+
+$('#delete-btn').on('click',function(){
+    const numberOfFiles = $('#scroll-container input[type="checkbox"]').length;
+
+    // var table = document.getElementById('fw_table');
+    // var rowCount = table.rows.length;
+    
     var list_of_file = []
     var crsfToken = getCookie('csrftoken');
 
-    for(i=1;i<=rowCount;i++){
-        checkbox_id = '#cb_file_'+ i
-        file_id = '#file_'+i
-        if($(checkbox_id).prop('checked')==true){
-            list_of_file.push($(file_id).text())
+    for (i = 1; i <= numberOfFiles; i++) {
+        checkbox_id = '#cb_file_' + i;
+
+        if ($(checkbox_id).prop('checked') == true) {
+            var file_label = $(checkbox_id).next();
+            list_of_file.push(file_label.text());
         }
     }
     data_delete = {
         'file_names': list_of_file,
     }
-
+    console.log(data_delete);
     var jsonDataString = JSON.stringify(data_delete);
 
     $.ajax({
@@ -95,10 +119,12 @@ $('#del_btn').on('click',function(){
         dataType: 'json',
         success: function(data){
             location.reload();
+            $('input[type="checkbox"]').each(function(){
+  	            $(this).prop('checked', false);
+            });
         },
     })
 })
-
 $('#check_list').on('click',function(){
     $.ajax({
         type: 'GET',
